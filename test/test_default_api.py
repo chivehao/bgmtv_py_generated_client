@@ -405,23 +405,15 @@ class TestDefaultApi(unittest.TestCase):
 
 
         # Enter a context with an instance of the API client
-        with openapi_client.ApiClient(configuration) as api_client:
-            # Create an instance of the API class
-            api_instance = openapi_client.DefaultApi(api_client)
-            limit = 1 # int | 分页参数 (optional)
-            offset = 20 # int | 分页参数 (optional)
-            search_subjects_request = openapi_client.SearchSubjectsRequest(keyword="日常") # SearchSubjectsRequest |  (optional)
-            api_response = api_instance.search_subjects(limit=limit, offset=offset, search_subjects_request=search_subjects_request)
-            print("The response of DefaultApi->search_subjects:\n")
-            print(api_response)
-            # pprint(api_response)
-            # try:
-            #     # 条目搜索
-            #     api_response = api_instance.search_subjects(limit=limit, offset=offset, search_subjects_request=search_subjects_request)
-            #     print("The response of DefaultApi->search_subjects:\n")
-            #     pprint(api_response)
-            # except Exception as e:
-            #     print("Exception when calling DefaultApi->search_subjects: %s\n" % e)
+        # with openapi_client.ApiClient(configuration) as api_client:
+        #     # Create an instance of the API class
+        #     api_instance = openapi_client.DefaultApi(api_client)
+        #     limit = 1 # int | 分页参数 (optional)
+        #     offset = 20 # int | 分页参数 (optional)
+        #     search_subjects_request = openapi_client.SearchSubjectsRequest(keyword="日常") # SearchSubjectsRequest |  (optional)
+        #     api_response = api_instance.search_subjects(limit=limit, offset=offset, search_subjects_request=search_subjects_request)
+        #     print("The response of DefaultApi->search_subjects:\n")
+        #     print(api_response)
 
         pass
 
