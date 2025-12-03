@@ -12,8 +12,10 @@
 """  # noqa: E501
 
 
+import pprint
 import unittest
 
+import openapi_client
 from openapi_client.api.default_api import DefaultApi
 
 
@@ -395,6 +397,32 @@ class TestDefaultApi(unittest.TestCase):
 
         条目搜索
         """
+        # Defining the host is optional and defaults to https://api.bgm.tv
+        # See configuration.py for a list of all supported configuration parameters.
+        configuration = openapi_client.Configuration(
+            host = "https://api.bgm.tv"
+        )
+
+
+        # Enter a context with an instance of the API client
+        with openapi_client.ApiClient(configuration) as api_client:
+            # Create an instance of the API class
+            api_instance = openapi_client.DefaultApi(api_client)
+            limit = 1 # int | 分页参数 (optional)
+            offset = 20 # int | 分页参数 (optional)
+            search_subjects_request = openapi_client.SearchSubjectsRequest(keyword="日常") # SearchSubjectsRequest |  (optional)
+            api_response = api_instance.search_subjects(limit=limit, offset=offset, search_subjects_request=search_subjects_request)
+            print("The response of DefaultApi->search_subjects:\n")
+            print(api_response)
+            # pprint(api_response)
+            # try:
+            #     # 条目搜索
+            #     api_response = api_instance.search_subjects(limit=limit, offset=offset, search_subjects_request=search_subjects_request)
+            #     print("The response of DefaultApi->search_subjects:\n")
+            #     pprint(api_response)
+            # except Exception as e:
+            #     print("Exception when calling DefaultApi->search_subjects: %s\n" % e)
+
         pass
 
     def test_uncollect_character_by_character_id_and_user_id(self) -> None:

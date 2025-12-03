@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.search_subjects_request import SearchSubject
 from openapi_client.models.subject import Subject
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +31,7 @@ class PagedSubject(BaseModel):
     total: Optional[StrictInt] = 0
     limit: Optional[StrictInt] = 0
     offset: Optional[StrictInt] = 0
-    data: Optional[List[Subject]] = None
+    data: Optional[List[SearchSubject]] = None
     __properties: ClassVar[List[str]] = ["total", "limit", "offset", "data"]
 
     model_config = ConfigDict(
@@ -94,7 +95,7 @@ class PagedSubject(BaseModel):
             "total": obj.get("total") if obj.get("total") is not None else 0,
             "limit": obj.get("limit") if obj.get("limit") is not None else 0,
             "offset": obj.get("offset") if obj.get("offset") is not None else 0,
-            "data": [Subject.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "data": [SearchSubject.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

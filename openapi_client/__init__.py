@@ -114,6 +114,7 @@ __all__ = [
     "SearchPersonsRequest",
     "SearchPersonsRequestFilter",
     "SearchSubjectsRequest",
+    "SearchSubject",
     "SearchSubjectsRequestFilter",
     "SlimSubject",
     "Stat",
